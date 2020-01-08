@@ -12,6 +12,7 @@ using namespace std;
 int menu();
 void end_window();
 void start_window();
+void password(); //  Password = 1234
 //  Book Data Type Declaration by Declaring Class
 class book
 {
@@ -213,10 +214,34 @@ void end_window() //  Function for Ending window
     cout<<"\n\n\n\n\n\n\t\tA Very Warm Thanks for using this Application !!\n\n\n\t\t\tHope You Have a Good Day\n\n\n\n\t\t\tPress amy key to Exit...";
     getch();
 }
+void password() //  Function For Password Protection ( Password = 1234 )
+{
+    char pass[55];
+    system("cls");
+    cout<<"\n\n\n\n\n\n\t\t\tPassword Protected !!";
+    cout<<endl<<"\n\n\t\t\t    Password:";
+    int p=0;
+    do
+    {
+        pass[p]=getch();
+        if(pass[p]!='\r')
+            cout<<"*";
+        p++;
+    }while(pass[p-1]!='\r');
+    pass[p-1]='\0';
+    if(strcmp(pass,"1234")==0)
+        cout<<endl<<"\n\n\t\t\t Correct Password !";
+    else{
+        cout<<endl<<"\n\n\n\n\t\tWrong Password !!";
+        getch();
+        password();}
+    getch();
+}
 int main() //  Main Function
 {
     book b; char temp[25]; int x;
     start_window();
+    password();
     while(1)
     {
         system("cls");
