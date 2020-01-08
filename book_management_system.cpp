@@ -260,5 +260,6 @@ int main() //  Main Function
             }
         getch();
     }
+return 0;
 }
-}
+
